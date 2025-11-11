@@ -1,0 +1,381 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --sidebar-bg: #2b3641;
+  --sidebar-text: #adb5bd;
+  --sidebar-hover-bg: #343f4c;
+  --sidebar-active-bg: #3f4a56;
+
+  --header-bg: #ffffff;
+  --header-text: #495057;
+  --header-border: #e9ecef;
+
+  --content-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-primary: #343a40;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+
+  --primary-color: #3b82f6; /* Azul para botões/destaques */
+  --success-color: #28a745; /* Verde para sucesso */
+  --danger-color: #dc3545; /* Vermelho para perigo */
+
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: #e2e8f0; /* Um fundo sutil para a página toda */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-grow: 1; /* Permite que o root ocupe o espaço disponível */
+  min-height: 100vh; /* Garante que o root ocupe toda a altura */
+}
+
+/* --- Layout Principal --- */
+.dashboard-layout {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 1rem 0;
+  flex-shrink: 0; /* Não permite que a sidebar encolha */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.sidebar nav a:hover {
+  background-color: var(--sidebar-hover-bg);
+  color: #ffffff;
+}
+
+.sidebar nav a.active {
+  background-color: var(--sidebar-active-bg);
+  color: #ffffff;
+}
+
+.main-content {
+  flex-grow: 1; /* Ocupa o restante do espaço horizontal */
+  display: flex;
+  flex-direction: column;
+  background-color: var(--content-bg);
+}
+
+.navbar {
+  background-color: var(--header-bg);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--header-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0; /* Não permite que a navbar encolha */
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.content-area {
+  flex-grow: 1; /* Ocupa o restante do espaço vertical */
+  padding: 2rem;
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for grande */
+}
+
+/* --- Títulos e Parágrafos --- */
+h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* --- Botões --- */
+button {
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0.75em 1.5em;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+  margin: 0.5rem 0.25rem;
+  background-color: #e9ecef; /* Botão padrão cinza */
+  color: var(--text-primary);
+}
+button:hover {
+  border-color: #ced4da;
+  background-color: #dde2e6;
+}
+button.primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+button.primary:hover {
+  background-color: #3373d4;
+  border-color: #3373d4;
+}
+button.secondary {
+  background-color: var(--success-color);
+  color: #ffffff;
+}
+button.secondary:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+button.danger {
+  background-color: var(--danger-color);
+  color: #ffffff;
+}
+button.danger:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+
+/* --- Formulários --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+label {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+input[type="text"],
+input[type="number"], /* Adicionado para campos numéricos */
+select,
+textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid var(--border-color);
+  background-color: #fcfdfe;
+  color: var(--text-primary);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Listas e Tabelas --- */
+.card-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Mais largo */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+.card button {
+  margin-top: 1rem;
+  align-self: flex-start; /* Alinha o botão à esquerda dentro do card */
+}
+
+table {
+  width: 100%;
+  border-collapse: separate; /* Permite border-radius nas células */
+  border-spacing: 0; /* Remove espaçamento padrão */
+  margin-top: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden; /* Garante que as bordas arredondadas sejam visíveis */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+th, td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+th {
+  background-color: #f1f3f5; /* Um cinza mais claro para o cabeçalho da tabela */
+  font-weight: 500;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+/* Estilo para a primeira e última célula de cabeçalho para arredondamento */
+th:first-child { border-top-left-radius: 8px; }
+th:last-child { border-top-right-radius: 8px; }
+
+tbody tr:last-child td {
+  border-bottom: none; /* Remove a borda inferior da última linha */
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa; /* Efeito hover nas linhas da tabela */
+}
+
+/* src/index.css (ADICIONAR NO FINAL) */
+
+/* --- Layout de Login --- */
+.login-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--content-bg); /* Fundo cinza claro */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--card-bg);
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.login-card h2 {
+  text-align: center;
+  color: var(--sidebar-bg); /* Cor escura do logo */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.login-card .form-group {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  gap: 0.75rem;
+}
+
+.login-card .form-group label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.login-card button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.9em 1.5em;
+  font-size: 1rem;
+}
